@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123b54"><title>CitySaathi — City services, made simple</title>
+  <link rel="manifest" href="manifest.json"><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar"><div class="brand"><span class="brandmark">C</span><div><b>CitySaathi</b><small>Your city. One assistant.</small></div></div><div class="top-actions"><select id="language" aria-label="Language"><option value="en">English</option><option value="kn">ಕನ್ನಡ</option><option value="hi">हिन्दी</option><option value="ta">தமிழ்</option><option value="te">తెలుగు</option></select><button class="ghost" id="adminToggle">Officer view</button></div></header>
+<main>
+<section class="hero"><div><span class="eyebrow">MUNICIPAL SERVICES, SIMPLIFIED</span><h1 id="heroTitle">How can we help your city life?</h1><p id="heroSub">Apply for services, raise a complaint, and track requests — all in one place.</p></div><div class="hero-icon">🏙️</div></section>
+<nav class="tabs"><button class="tab active" data-view="citizen">Citizen services</button><button class="tab" data-view="track">Track request</button><button class="tab" data-view="officer">Officer dashboard</button></nav>
+<section id="citizenView" class="view">
+  <h2>Choose a service</h2><div class="service-grid">
+    <button class="service-card" data-service="Water connection"><span>💧</span><b>New water connection</b><small>Apply for a household connection</small></button>
+    <button class="service-card" data-service="Property tax"><span>🏠</span><b>Property tax</b><small>View a sample tax request</small></button>
+    <button class="service-card" data-service="Public complaint"><span>🛠️</span><b>Report a problem</b><small>Road, waste, streetlight and more</small></button>
+  </div>
+  <div class="panel form-panel"><div class="panel-heading"><div><span class="eyebrow">SERVICE REQUEST</span><h2 id="formTitle">Start an application</h2></div><span class="tag">Demo mode</span></div>
+    <form id="requestForm"><label>Full name<input required name="name" placeholder="Enter your name"></label><label>Mobile number<input required name="phone" inputmode="tel" pattern="[0-9+ ]{10,15}" placeholder="10-digit mobile number"></label><label>Address<textarea required name="address" rows="2" placeholder="House number, street, area"></textarea></label><label>Service<select required name="service" id="serviceSelect"><option value="">Select a service</option><option>Water connection</option><option>Property tax</option><option>Public complaint</option></select></label><label id="detailsLabel">Describe your request<textarea name="details" rows="3" placeholder="Tell us what you need"></textarea></label><label class="upload">Optional supporting document<input type="file" name="document" accept="image/*,.pdf"><small>Demo only: file is not uploaded to a server.</small></label><label class="consent"><input required type="checkbox"> I confirm these details are correct and agree to submit this demo request.</label><button class="primary" type="submit">Review & submit request</button></form>
+    <div id="successBox" class="success hidden" role="status"></div>
+  </div>
+</section>
+<section id="trackView" class="view hidden"><div class="panel"><span class="eyebrow">APPLICATION STATUS</span><h2>Track your request</h2><p class="muted">Enter the reference number shown after submitting a demo request on this device.</p><form id="trackForm" class="inline-form"><input name="ref" required placeholder="Example: CS-2026-0001"><button class="primary">Track</button></form><div id="trackResult"></div></div></section>
+<section id="officerView" class="view hidden"><div class="panel"><div class="panel-heading"><div><span class="eyebrow">MUNICIPAL OPERATIONS</span><h2>Officer dashboard</h2></div><span class="tag">Local demo data</span></div><div class="stats"><div><b id="totalCount">0</b><small>Total requests</small></div><div><b id="pendingCount">0</b><small>Pending</small></div><div><b id="resolvedCount">0</b><small>Resolved</small></div></div><div class="table-wrap"><table><thead><tr><th>Reference</th><th>Citizen</th><th>Service</th><th>Status</th><th>Update</th></tr></thead><tbody id="requestsBody"><tr><td colspan="5" class="muted">No requests yet.</td></tr></tbody></table></div><p class="notice">This demo dashboard has no officer authentication. Do not use real citizen data.</p></div></section>
+</main>
+<footer>CitySaathi prototype · Demonstration only · Not connected to a municipal authority</footer>
+<script src="app.js"></script>
+</body></html>
